@@ -1,5 +1,8 @@
-stage('build') {
+pipeline {
+    agent any
+    stage('build') {
     steps {
-        sh 'python hello_Iguazio.py'
+        sh 'hello_Iguazio.py'
     }
+}
 }
