@@ -2,7 +2,7 @@ pipeline {
     agent any
     stage('build') {
     steps {
-        sh 'python hello_Iguazio.py'
+        sh 'python source/hello_Iguazio.py'
     }
 }
 }
