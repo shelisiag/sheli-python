@@ -2,7 +2,7 @@
 import requests, json
 
 # API base URL
-BASE_URL = "https://api.openweathermap.org/data/2.5/weather?q=Tel-Aviv,il&appid=9fb52533d59fdfc1e056cd43c16bcc50&units=metric"
+BASE_URL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Tel-Aviv?unitGroup=metric&key=EZKP982XAM8QH4E26GGUWLQZU"
 
 # City Name
 CITY = "Tel-Aviv"
