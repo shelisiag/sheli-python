@@ -40,7 +40,7 @@ if response.status_code == 200:
    wind_report = data['wind']
    
    #print(f"{CITY:-^35}")
-   print(f"CITY: {CITY}")
+   #print(f"CITY: {CITY}")
    print(f"City ID: {data['id']}")   
    print(f"Temperature: {temperature}")
    print(f"Feel Like: {temp_feel_like}")    
