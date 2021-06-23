@@ -2,10 +2,10 @@
 import requests, json
 
 # API base URL
-BASE_URL = "https://api.openweathermap.org/data/2.5/weather?"
+BASE_URL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Tel-Aviv?unitGroup=metric&key=EZKP982XAM8QH4E26GGUWLQZU"
 
 # City Name
-CITY = "New Delhi"
+CITY = "Tel-Aviv"
 
 # Your API key
 API_KEY = "EZKP982XAM8QH4E26GGUWLQZU"
