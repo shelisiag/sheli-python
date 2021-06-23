@@ -1,9 +1,9 @@
 pipeline {
     agent any
-    stage('build') {
+    stage('hello') {
     steps {
-        #sh 'python source/hello_Iguazio.py'
-        echo 'Hello from Jenkinsfile'
+        sh 'python source/hello_Iguazio.py'
+        #echo 'Hello from Jenkinsfile'
     }
 }
 }
