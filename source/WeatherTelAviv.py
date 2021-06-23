@@ -2,13 +2,13 @@
 import requests, json
 
 # API base URL
-BASE_URL = "https://api.openweathermap.org/data/2.5/weather?"
+BASE_URL = "https://api.openweathermap.org/data/2.5/weather?q=Tel-Aviv,il&appid=9fb52533d59fdfc1e056cd43c16bcc50&units=metric"
 
 # City Name
-CITY = "Tel Aviv"
+CITY = "Tel-Aviv"
 
 # Your API key
-API_KEY = "https://api.openweathermap.org/data/2.5/weather?q=Tel-Aviv,il&appid=9fb52533d59fdfc1e056cd43c16bcc50"
+API_KEY = "EZKP982XAM8QH4E26GGUWLQZU"
 
 # updating the URL
 URL = BASE_URL + "q=" + CITY + "&appid=" + API_KEY
