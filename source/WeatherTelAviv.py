@@ -2,10 +2,10 @@
 import requests, json
 
 # API base URL
-BASE_URL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Tel-Aviv?unitGroup=metric&key=EZKP982XAM8QH4E26GGUWLQZU"
+BASE_URL = "https://api.openweathermap.org/data/2.5/weather?"
 
 # City Name
-CITY = "Tel-Aviv"
+CITY = "New Delhi"
 
 # Your API key
 API_KEY = "EZKP982XAM8QH4E26GGUWLQZU"
@@ -39,8 +39,7 @@ if response.status_code == 200:
    # wind report
    wind_report = data['wind']
    
-   #print(f"{CITY:-^35}")
-   #print(f"CITY: {CITY}")
+   print(f"{CITY:-^35}")
    print(f"City ID: {data['id']}")   
    print(f"Temperature: {temperature}")
    print(f"Feel Like: {temp_feel_like}")    
