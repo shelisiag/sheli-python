@@ -1,53 +1,74 @@
-# importing modules
+# Python program to find current
+# weather details of any city
+# using openweathermap api
+
+# import required modules
 import requests, json
 
-# API base URL
-BASE_URL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Tel-Aviv?unitGroup=metric&key=EZKP982XAM8QH4E26GGUWLQZU"
+# Enter your API key here
+api_key = "EZKP982XAM8QH4E26GGUWLQZU"
 
-# City Name
-CITY = "Tel-Aviv"
+# base_url variable to store url
+base_url = "http://api.openweathermap.org/data/2.5/weather?"
 
-# Your API key
-API_KEY = "EZKP982XAM8QH4E26GGUWLQZU"
+# Give city name
+#city_name = input("Enter city name : ")
+city_name = "Tel Aviv"
 
-# updating the URL
-URL = BASE_URL + "q=" + CITY + "&appid=" + API_KEY
+# complete_url variable to store
+# complete url address
+complete_url = base_url + "appid=" + api_key + "&q=" + city_name
 
-# Sending HTTP request
-response = requests.get(URL)
+# get method of requests module
+# return response object
+response = requests.get(complete_url)
 
-# checking the status code of the request
-if response.status_code == 200:
-    
-   # retrieving data in the json format
-   data = response.json()
-   
-   # take the main dict block
-   main = data['main']
-   
-   # getting temperature
-   temperature = main['temp']
-   # getting feel like
-   temp_feel_like = main['feels_like']  
-   # getting the humidity
-   humidity = main['humidity']
-   # getting the pressure
-   pressure = main['pressure']
-   
-   # weather report
-   weather_report = data['weather']
-   # wind report
-   wind_report = data['wind']
-   
-   print(f"{CITY:-^35}")
-   print(f"City ID: {data['id']}")   
-   print(f"Temperature: {temperature}")
-   print(f"Feel Like: {temp_feel_like}")    
-   print(f"Humidity: {humidity}")
-   print(f"Pressure: {pressure}")
-   print(f"Weather Report: {weather_report[0]['description']}")
-   print(f"Wind Speed: {wind_report['speed']}")
-   print(f"Time Zone: {data['timezone']}")
+# json method of response object
+# convert json format data into
+# python format data
+x = response.json()
+
+# Now x contains list of nested dictionaries
+# Check the value of "cod" key is equal to
+# "404", means city is found otherwise,
+# city is not found
+if x["cod"] != "404":
+
+	# store the value of "main"
+	# key in variable y
+	y = x["main"]
+
+	# store the value corresponding
+	# to the "temp" key of y
+	current_temperature = y["temp"]
+
+	# store the value corresponding
+	# to the "pressure" key of y
+	current_pressure = y["pressure"]
+
+	# store the value corresponding
+	# to the "humidity" key of y
+	current_humidity = y["humidity"]
+
+	# store the value of "weather"
+	# key in variable z
+	z = x["weather"]
+
+	# store the value corresponding
+	# to the "description" key at
+	# the 0th index of z
+	weather_description = z[0]["description"]
+
+	# print following values
+	print(" Temperature (in kelvin unit) = " +
+					str(current_temperature) +
+		"\n atmospheric pressure (in hPa unit) = " +
+					str(current_pressure) +
+		"\n humidity (in percentage) = " +
+					str(current_humidity) +
+		"\n description = " +
+					str(weather_description))
+
 else:
-   # showing the error message
-   print("Error in the HTTP request")
+	print(" City Not Found ")
+
