@@ -22,7 +22,8 @@ complete_url = base_url + "appid=" + api_key + "&q=" + city_name
 
 # get method of requests module
 # return response object
-response = requests.get(complete_url)
+#response = requests.get(complete_url)
+response = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Tel%20Aviv%2C%20TA%2C%20IL?unitGroup=metric&key=EZKP982XAM8QH4E26GGUWLQZU"
 
 # json method of response object
 # convert json format data into
