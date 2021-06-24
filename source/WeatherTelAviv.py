@@ -1,76 +1,34 @@
-# Python program to find current
-# weather details of any city
-# using openweathermap api
-
-# import required modules
-#import requests, json
-import json
-
-# Enter your API key here
-api_key = "EZKP982XAM8QH4E26GGUWLQZU"
-
-# base_url variable to store url
-base_url = "http://api.openweathermap.org/data/2.5/weather?"
-
-# Give city name
-#city_name = input("Enter city name : ")
-city_name = "Tel Aviv"
-
-# complete_url variable to store
-# complete url address
-complete_url = base_url + "appid=" + api_key + "&q=" + city_name
-
-# get method of requests module
-# return response object
-#response = requests.get(complete_url)
-response = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Tel%20Aviv%2C%20TA%2C%20IL?unitGroup=metric&key=EZKP982XAM8QH4E26GGUWLQZU"
-
-# json method of response object
-# convert json format data into
-# python format data
-x = response.json()
-
-# Now x contains list of nested dictionaries
-# Check the value of "cod" key is equal to
-# "404", means city is found otherwise,
-# city is not found
-if x["cod"] != "404":
-
-	# store the value of "main"
-	# key in variable y
-	y = x["main"]
-
-	# store the value corresponding
-	# to the "temp" key of y
-	current_temperature = y["temp"]
-
-	# store the value corresponding
-	# to the "pressure" key of y
-	current_pressure = y["pressure"]
-
-	# store the value corresponding
-	# to the "humidity" key of y
-	current_humidity = y["humidity"]
-
-	# store the value of "weather"
-	# key in variable z
-	z = x["weather"]
-
-	# store the value corresponding
-	# to the "description" key at
-	# the 0th index of z
-	weather_description = z[0]["description"]
-
-	# print following values
-	print(" Temperature (in kelvin unit) = " +
-					str(current_temperature) +
-		"\n atmospheric pressure (in hPa unit) = " +
-					str(current_pressure) +
-		"\n humidity (in percentage) = " +
-					str(current_humidity) +
-		"\n description = " +
-					str(weather_description))
-
+# importing requests and json
+import requests, json
+# base URL
+BASE_URL = "https://api.openweathermap.org/data/2.5/weather?"
+# City Name 
+CITY = "Hyderabad"
+# API key 
+API_KEY = "EZKP982XAM8QH4E26GGUWLQZU"
+# upadting the URL
+URL = BASE_URL + "q=" + CITY + "&appid=" + API_KEY
+# HTTP request
+response = requests.get(URL)
+# checking the status code of the request
+if response.status_code == 200:
+   # getting data in the json format
+   data = response.json()
+   # getting the main dict block
+   main = data['main']
+   # getting temperature
+   temperature = main['temp']
+   # getting the humidity
+   humidity = main['humidity']
+   # getting the pressure
+   pressure = main['pressure']
+   # weather report
+   report = data['weather']
+   print(f"{CITY:-^30}")
+   print(f"Temperature: {temperature}")
+   print(f"Humidity: {humidity}")
+   print(f"Pressure: {pressure}")
+   print(f"Weather Report: {report[0]['description']}")
 else:
-	print(" City Not Found ")
-
+   # showing the error message
+   print("Error in the HTTP request")
