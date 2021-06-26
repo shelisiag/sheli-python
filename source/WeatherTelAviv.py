@@ -7,7 +7,7 @@ CITY = "Tel-Aviv,il"
 # API key 
 API_KEY = "9fb52533d59fdfc1e056cd43c16bcc50"
 # upadting the URL
-URL = BASE_URL + "q=" + CITY + "&appid=" + API_KEY
+URL = BASE_URL + "q=" + CITY + "&appid=" + API_KEY + "&units=metric"
 # HTTP request
 response = requests.get(URL)
 # checking the status code of the request
