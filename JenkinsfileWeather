@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                sh 'python source/WeatherTelAviv.py'
+                sh 'python3 source/WeatherTelAviv.py'
             }
         }
     }
