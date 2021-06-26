@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Hello') {
+        stage('Print Weather') {
             steps {
                 sh 'python3.9 source/WeatherTelAviv.py'
             }
