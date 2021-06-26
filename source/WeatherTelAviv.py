@@ -5,7 +5,7 @@ BASE_URL = "https://api.openweathermap.org/data/2.5/weather?"
 # City Name 
 CITY = "Tel-Aviv,il"
 # API key 
-API_KEY = "9fb52533d59fdfc1e056cd43c16bcc50"
+API_KEY = "f0cbe74ac1fec39f66c8c5b8d6f7e066"
 # upadting the URL
 URL = BASE_URL + "q=" + CITY + "&appid=" + API_KEY + "&units=metric"
 # HTTP request
